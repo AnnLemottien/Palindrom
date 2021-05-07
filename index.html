@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Palindrom</title>
+        <style>
+            *{
+                font-family: Calibri, sans-serif;
+            }
+
+            .result{
+                margin-top: 10px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1>Palindrom</h1>
+        <p>Sprawdź czy podany wyraz jest palindromem.</p>
+
+        <label>Wprowadź wyraz:</label>
+        <input type="text" id="word">
+        <input type="text" id="rev-word" disabled>
+        
+        <input class="check-btn" type="button" value="Sprawdź">
+
+        <div class="result"></div>
+
+        <script>
+            
+            function palindromCheck(){
+                let word = document.querySelector('#word').value;
+                let word_reverse = word.split('').reverse().join('');
+                let result = document.querySelector('.result');
+
+                document.querySelector('#rev-word').value = word_reverse;
+
+                if(word == word_reverse){
+                    result.innerHTML = 'Wyraz <strong>jest</strong> palindromem.';
+                }else{
+                    result.innerHTML = 'Wyraz <strong>nie jest</strong> palindromem.';
+                }
+
+            }
+
+            document.querySelector('.check-btn').addEventListener( 'click', palindromCheck );
+            
+        </script>
+
+    </body>
+</html>
